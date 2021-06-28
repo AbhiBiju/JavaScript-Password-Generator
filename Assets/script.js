@@ -17,10 +17,11 @@ function generatePassword() {
 
   // Prompt Password Length
   var passwordLength = parseInt(prompt("How many characters do you want your password to be? (Enter 8-128)"));
+  console.log(passwordLength);
 
   // Get a length in the correct range:
-  while (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = parseInt(prompt("Please enter a length between 8 and 128:"));
+  while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    passwordLength = parseInt(prompt("Please enter a number between 8 and 128:"));
     console.log("oopsie");
   }
 
