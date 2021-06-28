@@ -27,19 +27,18 @@ function generatePassword() {
   // Generate Password
   var newPass = [];
   var newPassArray = "";
-  while (newPass.length < passwordLength) {
-    if (lowerCaseTest) newPassArray = newPassArray.concat(lowerLetters);
-    if (upperCaseTest) newPassArray = newPassArray.concat(upperLetters);
-    if (numbersTest) newPassArray = newPassArray.concat(numbers);
-    if (specialsTest) newPassArray = newPassArray.concat(specials);
 
-    for (var i = 0; i < passwordLength; i++) {
-      var randChar = newPassArray[Math.floor(Math.random() * newPassArray.length)];
-      newPass.push(randChar);
-    }
-    var joinPass = newPass.join("");
-    return joinPass;
+  if (lowerCaseTest) newPassArray = newPassArray.concat(lowerLetters);
+  if (upperCaseTest) newPassArray = newPassArray.concat(upperLetters);
+  if (numbersTest) newPassArray = newPassArray.concat(numbers);
+  if (specialsTest) newPassArray = newPassArray.concat(specials);
+
+  while (newPass.length < passwordLength) {
+    var randChar = newPassArray[Math.floor(Math.random() * newPassArray.length)];
+    newPass.push(randChar);
   }
+  var joinPass = newPass.join("");
+  return joinPass;
 }
 
 // Get references to the #generate element
